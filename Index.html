@@ -10,7 +10,7 @@ document: index.html -->
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="forms.css">
     <script src="mc_script.js"></script>
 </head>
 
@@ -18,56 +18,85 @@ document: index.html -->
     <header>
         <img src="mc_logo.png" alt="Millennium Computers">
     </header>
-    <form name="" action="">
+    <form name="computers" id="mComputers" action="http://www.mill_computers.com/orders/process.cgi" method="POST">
+        <!-- The fieldset is creating a part section of the form with a border, consiting of customer information. The last two inputs, the Zip Code and the Phone number are given a  specific pattern to follow so that the user must use that specific layout -->
+        <fieldset>
+                <legend>Customer Information</legend>
+                <label>First Name</label>
+                <input name="fName" type="text">
+                <label>Last Name</label>
+                <input name="lName" type="text">
+                <label>Street</label>
+                <input name="street" type="text">
+                <label>City</label>
+                <input name="city" type="text">
+                <label>State</label>
+                <input name="state" type="text">
+                <label>Zip Code</label>
+                <input name="zip" type="text" placeholder="nnnnn (-nnnn)" pattern="^\d{5}(-\d{4})?$">
+                <label>Phone Number</label>
+                <input name="phone" type="tel" placeholder="nnnnn (-nnnn)" pattern="^\d{5}(-\d{4})?$" />
+
+            </fieldset>
+        <fieldset>
+            <legend>Computer Specifications</legend>
         <label for="processor">Processor Speed</label>
-        <select name="" id="">
+        <select name="pSpeed" id="">
             <option value="3.2 GHz">3.2 GHz</option>
             <option value="4.0 GHz">4.0 GHz</option>
             <option value="5.2 GHz">5.2 GHz</option>
         </select>
         <label for="memory">Memory</label>
-        <select name="" id="">
+        <select name="mem" id="">
             <option value="1 GB">1  GB</option>
             <option value="2 GB">2 GB</option>
             <option value="4 GB">4 GB</option>
             <option value="8 GB">8 GB</option>
         </select>
         <label for="monitor">Monitor Size</label>
-<select name="" id="">
+<select name="monitor" id="">
     <option value="15in">15"</option>
     <option value="17in">17"</option>
     <option value="19in">19"</option>
     <option value="21in">21"</option>
 </select>
         <label for="hardware">Hardware Drive</label>  
-        <select name="" id="">
+        <select name="hd" id="">
             <option value="240 GB">240 GB</option>
             <option value="500 GB">500 GB</option>
             <option value="750 GB">750 GB</option>
             <option value="1 TB">1 TB</option>
         </select>
         <label for="burner">DVD Burner</label>
-        <fieldset>
+        <fieldset class="radio">
             <label for="">Yes</label>
-            <input name="burner" id="dYes" value="Yes" type="radio">
+            <input name="dvd" id="dYes" value="Yes" type="radio">
             <label for="dNo">No</label>
-            <input name="burner" id="dNo" value="no" type="radio">
+            <input name="dvd" id="dNo" value="No" type="radio">
         </fieldset>
         <label for="tuner">Tuner Card</label>
         <fieldset>
         <label for="">Yes</label>
-        <input name="burner" id="dYes" value="Yes" type="radio">
+        <input name="tuner" id="tYes" value="Yes" type="radio">
         <label for="dNo">No</label>
-        <input name="burner" id="dNo" value="no" type="radio">
+        <input name="tuner" id="tNo" value="No" type="radio">
     </fieldset>
         <label for="media">Media Card Reader</label>
         <fieldset>
         <label for="">Yes</label>
-        <input name="mediaCard" id="mYes" value="Yes" type="radio">
+        <input name="mCard" id="mYes" value="Yes" type="radio">
         <label for="dNo">No</label>
-        <input name="mediaCard" id="mNo" value="No" type="radio">
+        <input name="mCard" id="mNo" value="No" type="radio">
     </fieldset>
+    
+    <input name="warranty" id="extended" type="checkbox" value="yes">
+    <label for="extended">I would like a 24-month extended warranty</label>
 
+</fieldset>
+
+
+<input name="submit" id="submitOrder"type="submit" value="Submit Order">
+<input name="cancel" id="cancelOrder" type="reset" value="Cancel">
     </form>
 </body>
 

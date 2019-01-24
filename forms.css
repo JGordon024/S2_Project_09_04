@@ -1,0 +1,52 @@
+form{
+ width: 90%;
+ margin: auto;
+ display: -webkit-flex;
+ display: flex;
+ -webkit-flex-flow: row wrap;
+ flex-flow: row wrap;
+}
+/* Input Elements */
+input{
+    display: block;
+}
+
+/* Fieldset Elements */
+fieldset[type="radio"]{
+    width: 200px;
+}
+fieldset{
+    width: 400px;
+border-radius: 10px;
+margin: auto;
+}
+fieldset input:not([type='radio']):focus {
+    background: rgb(241, 241, 241);
+ }
+ 
+ fieldset input:not([type='radio']):focus:valid {
+    background: rgba(31, 179, 2,.5) url(mc_go.png) right/contain no-repeat;
+ }
+
+ fieldset input:not([type='radio']):focus:invalid {
+    background: rgba(179, 2, 2, 0.5) url(mc_go.png) right/contain no-repeat;
+ }
+/* Legend Element */
+legend{
+    color: white;
+    background: black;
+    border-radius: 20px;
+    width: 50%;
+    text-align: center;
+}
+
+/* Buttons */
+input[type="submit"], input[type="reset"]{
+    font-size: 1.3em;
+    margin: auto;
+    margin-top: 10px;
+}
+/* Label element */
+label{
+
+}
