@@ -19,84 +19,98 @@ document: index.html -->
         <img src="mc_logo.png" alt="Millennium Computers">
     </header>
     <form name="computers" id="mComputers" action="http://www.mill_computers.com/orders/process.cgi" method="POST">
-        <!-- The fieldset is creating a part section of the form with a border, consiting of customer information. The last two inputs, the Zip Code and the Phone number are given a  specific pattern to follow so that the user must use that specific layout -->
+        <!-- The fieldset is creating a part section of the form with a border, consiting of customer information. The last two inputs, the Zip Code and the Phone number are given a  specific pattern to follow so that the user must use that specific layout. The required attribute it making it so that the user must input data into the field -->
         <fieldset>
-                <legend>Customer Information</legend>
-                <label>First Name</label>
-                <input name="fName" type="text">
-                <label>Last Name</label>
-                <input name="lName" type="text">
-                <label>Street</label>
-                <input name="street" type="text">
-                <label>City</label>
-                <input name="city" type="text">
-                <label>State</label>
-                <input name="state" type="text">
-                <label>Zip Code</label>
-                <input name="zip" type="text" placeholder="nnnnn (-nnnn)" pattern="^\d{5}(-\d{4})?$">
-                <label>Phone Number</label>
-                <input name="phone" type="tel" placeholder="nnnnn (-nnnn)" pattern="^\d{5}(-\d{4})?$" />
+            <legend>Customer Information</legend>
+            <label>First Name</label>
+            <input name="fName" type="text" required>
+            <label>Last Name</label>
+            <input name="lName" type="text" required>
+            <label>Street</label>
+            <input name="street" type="text" required>
+            <label>City</label>
+            <input name="city" type="text" required>
+            <label>State</label>
+            <input name="state" type="text" required>
+            <label>Zip Code</label>
+            <input name="zip" type="text" placeholder="nnnnn-nnnn" pattern="^\d{5}(-\d{4})?$" required>
+            <label>Phone Number</label>
+            <input name="phone" type="tel" placeholder="(nnn) nnn-nnnn" pattern="^\d{10}$|^(\(\d{3}\)\s*)" required />
 
-            </fieldset>
-        <fieldset>
-            <legend>Computer Specifications</legend>
-        <label for="processor">Processor Speed</label>
-        <select name="pSpeed" id="">
-            <option value="3.2 GHz">3.2 GHz</option>
-            <option value="4.0 GHz">4.0 GHz</option>
-            <option value="5.2 GHz">5.2 GHz</option>
-        </select>
-        <label for="memory">Memory</label>
-        <select name="mem" id="">
-            <option value="1 GB">1  GB</option>
-            <option value="2 GB">2 GB</option>
-            <option value="4 GB">4 GB</option>
-            <option value="8 GB">8 GB</option>
-        </select>
-        <label for="monitor">Monitor Size</label>
-<select name="monitor" id="">
-    <option value="15in">15"</option>
-    <option value="17in">17"</option>
-    <option value="19in">19"</option>
-    <option value="21in">21"</option>
-</select>
-        <label for="hardware">Hardware Drive</label>  
-        <select name="hd" id="">
-            <option value="240 GB">240 GB</option>
-            <option value="500 GB">500 GB</option>
-            <option value="750 GB">750 GB</option>
-            <option value="1 TB">1 TB</option>
-        </select>
-        <label for="burner">DVD Burner</label>
-        <fieldset class="radio">
-            <label for="">Yes</label>
-            <input name="dvd" id="dYes" value="Yes" type="radio">
-            <label for="dNo">No</label>
-            <input name="dvd" id="dNo" value="No" type="radio">
         </fieldset>
-        <label for="tuner">Tuner Card</label>
-        <fieldset>
-        <label for="">Yes</label>
-        <input name="tuner" id="tYes" value="Yes" type="radio">
-        <label for="dNo">No</label>
-        <input name="tuner" id="tNo" value="No" type="radio">
-    </fieldset>
-        <label for="media">Media Card Reader</label>
-        <fieldset>
-        <label for="">Yes</label>
-        <input name="mCard" id="mYes" value="Yes" type="radio">
-        <label for="dNo">No</label>
-        <input name="mCard" id="mNo" value="No" type="radio">
-    </fieldset>
-    
-    <input name="warranty" id="extended" type="checkbox" value="yes">
-    <label for="extended">I would like a 24-month extended warranty</label>
+        <!-- The select elements are creating a dropdown menu where the options, given a value an a text, can be chosen. Each one is required -->
+        <fieldset id="customer">
+            <legend>Computer Specifications</legend>
+            <div id="formRow">
+                <label for="processor">Processor Speed</label>
+                <select name="pSpeed" id="" required>
+                    <option value="3.2 GHz">3.2 GHz</option>
+                    <option value="4.0 GHz">4.0 GHz</option>
+                    <option value="5.2 GHz">5.2 GHz</option>
+                </select>
+            </div>
+            <div id="formRow">
+                <label for="memory">Memory</label>
+                <select name="mem" id="" required>
+                    <option value="1 GB">1 GB</option>
+                    <option value="2 GB">2 GB</option>
+                    <option value="4 GB">4 GB</option>
+                    <option value="8 GB">8 GB</option>
+                </select>
+            </div>
+            <div id="formRow">
+                <label for="monitor">Monitor Size</label>
+                <select name="monitor" id="" required>
+                    <option value="15in">15"</option>
+                    <option value="17in">17"</option>
+                    <option value="19in">19"</option>
+                    <option value="21in">21"</option>
+                </select>
+            </div>
+            <div id="formRow">
+                <label for="hardware">Hardware Drive</label>
+                <select name="hd" id="" required>
+                    <option value="240 GB">240 GB</option>
+                    <option value="500 GB">500 GB</option>
+                    <option value="750 GB">750 GB</option>
+                    <option value="1 TB">1 TB</option>
+                </select>
+            </div>
+            <!-- Each fieldset is grouping up a Yes and No option for the question at hand. Each is given the type of radio and shares an id so that only one can be chosen -->
+            <div id="formRow">
+                <label for="burner">DVD Burner</label>
+                <fieldset required>
+                    <label for="">Yes</label>
+                    <input name="dvd" id="dYes" value="Yes" type="radio">
+                    <label for="dNo">No</label>
+                    <input name="dvd" id="dNo" value="No" type="radio">
+                </fieldset>
+            </div>
+            <label for="tuner">Tuner Card</label>
+            <fieldset required>
+                <label for="">Yes</label>
+                <input name="tuner" id="tYes" value="Yes" type="radio">
+                <label for="dNo">No</label>
+                <input name="tuner" id="tNo" value="No" type="radio">
+            </fieldset>
+            <div id="formRow">
+                <label for="media">Media Card Reader</label>
+                <fieldset required>
+                    <label for="">Yes</label>
+                    <input name="mCard" id="mYes" value="Yes" type="radio">
+                    <label for="dNo">No</label>
+                    <input name="mCard" id="mNo" value="No" type="radio">
+                </fieldset>
+            </div>
+            <input name="warranty" id="extended" type="checkbox" value="yes">
+            <label for="extended">I would like a 24-month extended warranty</label>
 
-</fieldset>
+        </fieldset>
 
 
-<input name="submit" id="submitOrder"type="submit" value="Submit Order">
-<input name="cancel" id="cancelOrder" type="reset" value="Cancel">
+        <input name="submit" id="submitOrder" type="submit" value="Submit Order">
+        <input name="cancel" id="cancelOrder" type="reset" value="Cancel">
+        <input value="Contact me" onclick="script" type="button">
     </form>
 </body>
 

@@ -1,38 +1,46 @@
-form{
- width: 90%;
- margin: auto;
- display: -webkit-flex;
- display: flex;
- -webkit-flex-flow: row wrap;
- flex-flow: row wrap;
+/* This allows the form to flex around and appears better. Also has extensions for other browsers */
+form {
+    width: 90%;
+    margin: auto;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
 }
+
 /* Input Elements */
-input{
+input {
     display: block;
+    margin: 10px 0;
 }
 
 /* Fieldset Elements */
-fieldset[type="radio"]{
+fieldset[type="radio"] {
     width: 200px;
 }
-fieldset{
+
+fieldset {
     width: 400px;
-border-radius: 10px;
-margin: auto;
+    border-radius: 10px;
+    margin: auto;
 }
+
+/* The inputs that are not of the type of radio and are focused have a light color. When the input is valid, it is green with a checkmark on the right side. Inputs that are invalid appear red with an X on the right side */
 fieldset input:not([type='radio']):focus {
     background: rgb(241, 241, 241);
- }
- 
- fieldset input:not([type='radio']):focus:valid {
-    background: rgba(31, 179, 2,.5) url(mc_go.png) right/contain no-repeat;
- }
+}
 
- fieldset input:not([type='radio']):focus:invalid {
-    background: rgba(179, 2, 2, 0.5) url(mc_go.png) right/contain no-repeat;
- }
+fieldset input:not([type='radio']):focus:valid {
+    background: rgba(31, 179, 2, .5) url(mc_go.png) right/contain no-repeat;
+}
+
+fieldset input:not([type='radio']):focus:invalid {
+    background: rgba(179, 2, 2, 0.5) url(mc_stop.png) right/contain no-repeat;
+}
+
 /* Legend Element */
-legend{
+/*Legend elements have a blackgorund with white text, a rounded border, a larger width, and is placed in the center of the fieldset */
+legend {
     color: white;
     background: black;
     border-radius: 20px;
@@ -41,12 +49,11 @@ legend{
 }
 
 /* Buttons */
-input[type="submit"], input[type="reset"]{
+/* Three different types of inputs are being effected. The font is being increased by size,they are having some space added between them and the field sets. The margin is set to auto to center them to have equal spacing */
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
     font-size: 1.3em;
     margin: auto;
     margin-top: 10px;
-}
-/* Label element */
-label{
-
 }
